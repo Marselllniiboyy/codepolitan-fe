@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulir</title>
+  </head>
+  <body>
+    <!-- FORM(Mthod defult adalah GET) adalah dokumen yang bisa menerima data-->
+    <h1>Formulir</h1>
+    <form action="/daftar" method="post">
+      <table>
+        <tr>
+          <td>
+            <label for="name">Nama anda</label>
+          </td>
+          <td>
+            <input type="text" placeholder="Nama" id="name" name="name" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label>
+          </td>
+          <td>
+            <input type="email" placeholder="Email" id="email" name="email" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password">Password</label></td>
+          <td>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              name="password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td rowspan=""><label for="age">Umur</label></td>
+          <td>
+            <input type="number" placeholder="Umur" id="age" name="age" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit">Kirim</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <hr />
+    <h1>Pesanan</h1>
+    <form action="/pesanan">
+      <label for="">Baju</label>
+      <div>
+        <!-- difult itgu dipencet sesuai letak checked -->
+        <input type="radio" name="baju" id="kemeja" value="Kemeja" checked />
+        <label for="kemeja">Kemeja</label>
+        <input type="radio" name="baju" id="Kaos" value="Kaos" />
+        <label for="Kaos">Kaos</label>
+      </div>
+      <div>
+        <label for="ukuran">Ukuran</label>
+        <select name="ukuran" id="ukuran">
+          <option>--</option>
+          <option value="s" selected>Small</option>
+          <option value="m">Medium</option>
+          <!-- difult itgu dipencet sesuai letak selected -->
+          <option value="l">Large</option>
+        </select>
+      </div>
+      <div>
+        <label for="term">Sesuai Pesanan</label>
+        <input type="checkbox" name="term" id="term" value="true" />
+      </div>
+      <div>
+        <p>
+          <label for="notes">Catatan</label>
+        </p>
+        <textarea
+          name="notes"
+          id="notes"
+          cols="50"
+          rows="5"
+          placeholder="Masukkan catgatan anda.."
+        ></textarea>
+      </div>
+      <button type="submit">Submit Order</button>
+    </form>
+    <!-- Validasi form-->
+    <h1>Validasi</h1>
+    <form action="validasi">
+      <!-- wajib di isi atribut"required" -->
+      <label for="input">Input</label>
+      <input
+        type="text"
+        name="input"
+        id="input"
+        required
+        minlength="5"
+        maxlength="9"
+      />
+      <button type="submit">Submit bro</button>
+      <!-- Intinya validasi dibutuhkan agar user dalam menginputnya sesuai aturan-->
+    </form>
+  </body>
+</html>

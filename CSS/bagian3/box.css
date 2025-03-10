@@ -1,0 +1,21 @@
+div {
+  width: 300px;
+  border: 5px double;
+  border-color: aquamarine blue;
+  padding: 50px 100px 0px 50px;
+  margin: 20px auto;
+}
+
+.in {
+  width: auto;
+  border: none;
+  background-color: aqua;
+  display: none;
+}
+
+.in div {
+  display: inline;
+  padding: 0;
+  margin: 10px;
+  border: 1px solid red;
+}

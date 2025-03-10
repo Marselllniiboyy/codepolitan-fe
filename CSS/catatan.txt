@@ -1,0 +1,17 @@
+Cara kerja css itu digunakan untuk styling html, dengan kata lain untuk mempercantik tampilan html, mengatur halaman letak, ukuran dll
+CSS adalah singkatgan dari Cascading Style Sheets
+///
+seletectgor {
+  property : value
+}
+//// dontoh
+
+h1 {
+  color : red
+}
+
+
+//////
+HTML ==== struktur
+CSS ==== Style
+JS ==== Behavior/Mind/Brain
