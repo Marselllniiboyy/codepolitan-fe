@@ -13,6 +13,12 @@ function App() {
     age: 25,
   };
 
+  const presiden = {
+    name: "Jokowi",
+    jabatan: "Presiden",
+    age: 70,
+  };
+
   return (
     <div className="app">
       {/* <Article
@@ -27,7 +33,7 @@ function App() {
       />
       <About /> */}
       {/* pembuatan context{state management} */}
-      <GlobalContext.Provider value={user}>
+      <GlobalContext.Provider value={{ user, presiden }}>
         <RouterProvider router={router} />
       </GlobalContext.Provider>
     </div>

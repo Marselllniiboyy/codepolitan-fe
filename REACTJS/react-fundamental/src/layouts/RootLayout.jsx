@@ -4,8 +4,8 @@ import { Link, Outlet } from "react-router-dom";
 function RootLayout() {
   return (
     <>
-      <Link to="/">Home</Link> | <Link to="/about">Home</Link> |
-      <Link to="/Test">Test</Link>
+      <Link to="/">Home</Link> | <Link to="/About">About</Link> |
+      <Link to="/Blog">Blog</Link> | <Link to="/Test">Test</Link>
       <p></p>
       <Outlet />
     </>
