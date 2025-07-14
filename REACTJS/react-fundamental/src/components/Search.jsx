@@ -2,14 +2,30 @@ import { useState } from "react";
 
 function Serach(props) {
   const [search, setSearch] = useState("");
-  const onchangeSerach = (event) => {
-    setSearch(event.target.value);
-    props.onchangeSearch(event.target.value);
+
+  const defultSerch = (e) => {
+    setSearch(e.target.value);
+    if (search === "") {
+      props.onchangeSearch(search);
+    }
   };
+
+  const onchangeSerach = () => {
+    props.onchangeSearch(search);
+  };
+
+  const onKeySearch = (e) => {
+    if (e.key === "Enter") {
+      onchangeSerach();
+    }
+  };
+
   return (
     <>
       <div>
-        Serach article: <input type="text" onChange={onchangeSerach} />
+        Serach article:{" "}
+        <input type="text" onChange={defultSerch} onKeyDown={onKeySearch} />
+        <button onClick={onchangeSerach}>Cari</button>
       </div>
       <div>
         Ditemuakan {props.totalPost} data dengan pencaharian {search}

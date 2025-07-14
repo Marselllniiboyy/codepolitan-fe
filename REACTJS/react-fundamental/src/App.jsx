@@ -1,13 +1,18 @@
 import "./App.css";
-// import Article from "./components/article";
-// import About from "./components/about";
 import Home from "./page/index";
-
+import { GlobalContext } from "./context";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routers";
 function App() {
   // const articles = [];
   // for (let i = 1; i < 10; i++) {
   //   articles.push(<Article key={i} />);
   // }
+  const user = {
+    userName: "Marsel",
+    age: 25,
+  };
+
   return (
     <div className="app">
       {/* <Article
@@ -21,7 +26,10 @@ function App() {
         arr={["Penglumbaran Kangin", "Tiga", "Susut", "Bangli"]}
       />
       <About /> */}
-      <Home />
+      {/* pembuatan context{state management} */}
+      <GlobalContext.Provider value={user}>
+        <RouterProvider router={router} />
+      </GlobalContext.Provider>
     </div>
   );
 }

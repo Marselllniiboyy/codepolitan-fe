@@ -2,17 +2,20 @@
   {
     "title": "Tutorial belajar reactjs lengokap",
     "tags": ["react","frontend"],
-    "date": "20-2-2022"
+    "date": "20-2-2022",
+    "isNew": true
   },
   {
     "title": "Meningkatkan performa di reactjs",
     "tags": ["react", "frontend"],
-    "date": "20-2-2022"
+    "date": "20-2-2022",
+    "isNew": false
   },
   {
     "title": "Cara menggunakan cakra Ui",
     "tags": ["react", "css"],
-    "date": "20-2-2022"
+    "date": "20-2-2022",
+    "isNew": false
   }
 
 ]
