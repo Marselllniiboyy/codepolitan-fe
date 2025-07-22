@@ -44,42 +44,58 @@ function Menu() {
 
 function Footer() {
   const hour = new Date().getHours();
-  const jamBuka = 13;
+  const jamBuka = 14;
   const jamTutup = 22;
   let warung = "Buka";
   const isOpen = hour < jamTutup && hour >= jamBuka;
 
+  if (isOpen) {
+    return (
+      <FooterOpenHour
+        hour={hour}
+        warung={warung}
+        jamBuka={jamBuka}
+        jamTutup={jamTutup}
+      />
+    );
+  } else {
+    return <FooterClosedHour jamBuka={jamBuka} jamTutup={jamTutup} />;
+  }
+}
+
+function FooterOpenHour(props) {
   return (
     <footer className="footer">
-      {isOpen ? (
-        <div className="order">
-          Copyright {new Date().getFullYear()}, buka di jam {jamBuka} tutup di
-          jam {jamTutup}
-          <p>Warung sedang {warung}</p>
-          <button className="btn">Order</button>
-        </div>
-      ) : (
-        <p>
-          Maaf masih tutup datang lagi di jam {jamBuka}:00-{jamTutup}:00
-        </p>
-      )}
+      <div className="order">
+        Copyright {new Date().getFullYear()}, buka di jam {props.jamBuka} tutup
+        di jam {props.jamTutup}
+        <p>Warung sedang {props.warung}</p>
+        <button className="btn">Order</button>
+      </div>
+    </footer>
+  );
+}
+
+function FooterClosedHour({ jamBuka, jamTutup }) {
+  return (
+    <footer className="footer">
+      <p>
+        Maaf masih tutup datang lagi di jam {jamBuka}:00-{jamTutup}
+        :00
+      </p>
     </footer>
   );
 }
 
 function Food(props) {
+  const { nama, foto, deskripsi, harga, stok } = props.foodsObj;
   return (
     <li className="food">
-      <img
-        src={props.foodsObj.foto}
-        alt={props.foodsObj.nama}
-        width={100}
-        height={70}
-      />
+      <img src={foto} alt={nama} width={100} height={70} />
       <div>
-        <h3>{props.foodsObj.nama}</h3>
-        <p>{props.foodsObj.deskripsi}</p>
-        <span>{props.foodsObj.harga}</span>
+        <h3>{nama}</h3>
+        <p>{deskripsi}</p>
+        <span>{harga}</span>
       </div>
     </li>
   );
