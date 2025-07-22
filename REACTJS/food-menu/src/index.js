@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDom from "react-dom/client";
 import "./index.css";
+import data from "./apis/data";
 
 function App() {
   return (
@@ -23,57 +24,64 @@ function Header() {
 }
 
 function Menu() {
+  const foods = data;
+  const numFoods = foods.length;
   return (
     <main className="menu">
       <h2>Menu Kita</h2>
-      <Food
-        nama="Nasi Goreng"
-        harga={25000}
-        deskripsi="Nasi gorang enak banget pakai daging babi ultimate HARAM"
-        foto="food/nasi-goreng.jpg"
-        stok={Math.random() >= 0.5 ? true : false}
-      />
-      <Food
-        nama="Sate Ayam"
-        harga={35000}
-        deskripsi="Sate ayam campur daging babi anjayyyy"
-        foto="food/sate-ayam.jpg"
-        stok={Math.random() >= 0.5 ? true : false}
-      />
+      {numFoods > 0 ? (
+        <ul className="foods">
+          {data.map((food, key) => (
+            <Food key={key} foodsObj={food} />
+          ))}
+        </ul>
+      ) : (
+        <h1>Makanan Sedang Kosong</h1>
+      )}
     </main>
   );
 }
 
 function Footer() {
   const hour = new Date().getHours();
-  const jamBuka = 9;
+  const jamBuka = 13;
   const jamTutup = 22;
   let warung = "Buka";
-
-  if (hour < jamBuka || hour > jamTutup) {
-    warung = "Tutup";
-    alert("Warung Mariani Tutup");
-  }
+  const isOpen = hour < jamTutup && hour >= jamBuka;
 
   return (
     <footer className="footer">
-      Copyright {new Date().getFullYear()}, buka di jam {jamBuka} tutup di jam{" "}
-      {jamTutup}
-      <p>Warung sedang {warung}</p>
+      {isOpen ? (
+        <div className="order">
+          Copyright {new Date().getFullYear()}, buka di jam {jamBuka} tutup di
+          jam {jamTutup}
+          <p>Warung sedang {warung}</p>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>
+          Maaf masih tutup datang lagi di jam {jamBuka}:00-{jamTutup}:00
+        </p>
+      )}
     </footer>
   );
 }
 
 function Food(props) {
   return (
-    <div className="foods">
-      <img src={props.foto} alt={props.nama} width={100} height={70} />
-      <div className="food">
-        <h3>{props.nama}</h3>
-        <p>{props.deskripsi}</p>
-        <span>{props.harga}</span>
+    <li className="food">
+      <img
+        src={props.foodsObj.foto}
+        alt={props.foodsObj.nama}
+        width={100}
+        height={70}
+      />
+      <div>
+        <h3>{props.foodsObj.nama}</h3>
+        <p>{props.foodsObj.deskripsi}</p>
+        <span>{props.foodsObj.harga}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
