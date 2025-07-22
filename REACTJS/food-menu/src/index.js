@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDom from "react-dom/client";
-import Nav from "./components/navbar/navbar";
+import "./index.css";
 
 function App() {
   return (
-    <>
-      <Nav />
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
-    </>
+    </div>
   );
 }
 
@@ -25,23 +24,29 @@ function Header() {
 
 function Menu() {
   return (
-    <>
+    <main className="menu">
       <h2>Menu Kita</h2>
-      <Food />
-      <Food />
-      <Food />
-      <Food />
-      <Food />
-      <Food />
-      <Food />
-    </>
+      <Food
+        nama="Nasi Goreng"
+        harga={25000}
+        deskripsi="Nasi gorang enak banget pakai daging babi ultimate HARAM"
+        foto="food/nasi-goreng.jpg"
+        stok={Math.random() >= 0.5 ? true : false}
+      />
+      <Food
+        nama="Sate Ayam"
+        harga={35000}
+        deskripsi="Sate ayam campur daging babi anjayyyy"
+        foto="food/sate-ayam.jpg"
+        stok={Math.random() >= 0.5 ? true : false}
+      />
+    </main>
   );
 }
 
 function Footer() {
   const hour = new Date().getHours();
-
-  const jamBuka = 14;
+  const jamBuka = 9;
   const jamTutup = 22;
   let warung = "Buka";
 
@@ -51,7 +56,7 @@ function Footer() {
   }
 
   return (
-    <footer>
+    <footer className="footer">
       Copyright {new Date().getFullYear()}, buka di jam {jamBuka} tutup di jam{" "}
       {jamTutup}
       <p>Warung sedang {warung}</p>
@@ -59,13 +64,16 @@ function Footer() {
   );
 }
 
-function Food() {
+function Food(props) {
   return (
-    <>
-      <img src="food/nasi-babi.jpg" alt="" width={100} height={70} />
-      <h2>Babi Gooling</h2>
-      <p>lorem</p>
-    </>
+    <div className="foods">
+      <img src={props.foto} alt={props.nama} width={100} height={70} />
+      <div className="food">
+        <h3>{props.nama}</h3>
+        <p>{props.deskripsi}</p>
+        <span>{props.harga}</span>
+      </div>
+    </div>
   );
 }
 
