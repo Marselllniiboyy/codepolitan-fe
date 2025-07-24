@@ -30,13 +30,23 @@ function Menu() {
     <main className="menu">
       <h2>Menu Kita</h2>
       {numFoods > 0 ? (
-        <ul className="foods">
-          {data.map((food, key) => (
-            <Food key={key} foodsObj={food} />
-          ))}
-        </ul>
+        <>
+          {/* makakan ada/available */}
+          <p>
+            Aneka Makanan Indonesia yang disajikan oleh warung Mariani Marwan
+            sebagai hidangan makakan kelangsungan hidup para pejuang rupiah
+          </p>
+          <ul className="foods">
+            {data.map((food, key) => (
+              <Food key={key} foodsObj={food} />
+            ))}
+          </ul>
+        </>
       ) : (
-        <h1>Makanan Sedang Kosong</h1>
+        <>
+          {/* makakan tidak ada/not available */}
+          <h1>Makanan Sedang Kosong</h1>
+        </>
       )}
     </main>
   );
@@ -90,12 +100,12 @@ function FooterClosedHour({ jamBuka, jamTutup }) {
 function Food(props) {
   const { nama, foto, deskripsi, harga, stok } = props.foodsObj;
   return (
-    <li className="food">
+    <li className={`food ${stok ? "" : "sold-out"}`}>
       <img src={foto} alt={nama} width={100} height={70} />
       <div>
         <h3>{nama}</h3>
         <p>{deskripsi}</p>
-        <span>{harga}</span>
+        <span>{stok ? harga : "HABIS"}</span>
       </div>
     </li>
   );
