@@ -41,7 +41,7 @@ body {
   height: 360px;
   color: #fffff9;
   border-radius: 1rem 1rem 0 0;
-  background: url("https://i.pinimg.com/564x/fb/ca/55/fbca559bda6a4a5582ee8124236712d3.jpg") no-repeat center top;
+  background: var(--bg-url) no-repeat center top;
   transition: background-size 1.5s ease-in-out;
   background-size: 100%;
 }
