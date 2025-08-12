@@ -1,0 +1,64 @@
+body {
+  background-color: antiquewhite;
+}
+
+.app {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+
+
+form input {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+
+}
+
+form button {
+  width: 120px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(0, 255, 0);
+}
+
+form button:hover {
+  background-color: rgb(2, 234, 2);
+}
+
+.task {
+  background-color: gold;
+}
+
+
+.task ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: red;
+}
+
+.task ul div {
+  background-color: rebeccapurple;
+  width: 100%;
+  display: flex;
+}
