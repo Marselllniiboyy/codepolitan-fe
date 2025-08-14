@@ -10,6 +10,7 @@ function App() {
         <Header />
         <FormInput />
         <Taks />
+        <Footer />
       </div>
     </>
   );
@@ -24,8 +25,13 @@ function Header() {
 }
 
 function FormInput() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e.target.value);
+  }
+
   return (
-    <div className="form">
+    <div className="form" onSubmit={handleSubmit}>
       <form>
         <input type="text" placeholder="Enter a task" />
         <button>Submit</button>
@@ -39,9 +45,12 @@ function Taks() {
     <div className="task">
       <ul>
         {temp.map((item) => (
-          <div>
-            <input type="checkbox" />
-            <li key={item.id}>{item.todo}</li>
+          <div className="mini-task">
+            <div className="checkbox">
+              <input type="checkbox" />
+              <li key={item.id}>{item.todo}</li>
+            </div>
+            <button>❌</button>
           </div>
         ))}
       </ul>
@@ -49,4 +58,11 @@ function Taks() {
   );
 }
 
+function Footer() {
+  return (
+    <div className="result">
+      <h2>Taks is 10 , taks Done is 0</h2>
+    </div>
+  );
+}
 export default App;
